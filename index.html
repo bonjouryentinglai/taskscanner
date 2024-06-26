@@ -13,5 +13,10 @@ liff.init({
 }).then(() => {
     // Start to use liff's api
 	console.log("initialized")
+	if (liff.scanCode) {
+	  liff.scanCode().then((result) => {
+	    console.log(result);
+	  });
+	}
 });
 </script>
