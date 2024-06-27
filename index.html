@@ -24,21 +24,7 @@
 		  //document.getElementById("qrtext").innerHTML = decodedText;
 	      
         html5QrCode.clear();
-	liff
-	  .sendMessages([
-	    {
-	      type: "text",
-	      text: decodedText.toUpperCase(),
-	    },
-	  ])
-	  .then(() => {
-	    console.log("message sent");
-	    liff.closeWindow();
-
-	  })
-	  .catch((err) => {
-	    console.log("error", err);
-	  });
+	liff.closeWindow();
      };
      const config = { fps: 10, qrbox: 800 };
 	// 直接開啟後面鏡頭
