@@ -22,9 +22,14 @@
 	const qrCodeSuccessCallback = (decodedText, decodedResult) => {
           /* 處理成功掃描 */  
 		  //document.getElementById("qrtext").innerHTML = decodedText;
-	      
-        html5QrCode.clear();
-	liff.closeWindow();
+	html5QrCode.stop().then((ignore) => {
+	  console.log(decodedText);
+	  html5QrCode.clear();
+	  liff.closeWindow();
+	}).catch((err) => {
+	  // Stop failed, handle it.
+	});
+        
      };
      const config = { fps: 10, qrbox: 800 };
 	// 直接開啟後面鏡頭
