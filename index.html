@@ -16,7 +16,7 @@ liff.init({
     liffId: '2005710720-1rG8XJLA', // Use own liffId
 }).then(() => {
     // Start to use liff's api
-    console.log("initialized")
+    alert("initialized");
     const html5QrCode = new Html5Qrcode("qr-reader");
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
 	  /* 處理成功掃描 */  
