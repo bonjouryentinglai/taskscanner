@@ -108,12 +108,26 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+				<button type="button" class="btn btn-primary" data-bs-target="#submit" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
 			  </div>
 		  </div>
 		</div>
 	  </div>
-
+	  <div class="modal fade" id="submit" aria-hidden="true" aria-labelledby="submitToggleLabel" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+		  <div class="modal-content">
+			
+			<div class="modal-body">
+				<div class="d-flex justify-content-center">
+					<i class="bi bi-check-circle-fill text-success" style="font-size: 8rem;"></i>
+				</div>
+				<div class="d-flex justify-content-center">
+					<h1 class="text-success">Thank you</h1>
+				</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.0.3/html5-qrcode.min.js"></script>
@@ -133,7 +147,7 @@
 		  // Stop failed, handle it.
 		});
      	};
-     	const config = { fps: 10, qrbox: 400 };
+     	const config = { fps: 10, qrbox: 320 };
 
 	html5QrCode.start({ 
 		facingMode: "environment" }, 
