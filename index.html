@@ -24,14 +24,14 @@
 	    console.log(decodedText);
 	  //html5QrCode.clear();
      };
-     const config = { fps: 10, qrbox: 800 };
+     const config = { fps: 10, qrbox: 600 };
 	// 直接開啟後面鏡頭
 	<!-- 開啟前置鏡頭 -->
 	<!-- html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback); -->
 
 	Html5Qrcode.getCameras().then(devices => {
 	  html5QrCode.start({ 
-	  facingMode: "environment" }, 
+	  facingMode: "user" }, 
 	  config, qrCodeSuccessCallback);
 	}).catch(err => {
 	  // handle err
