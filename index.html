@@ -23,9 +23,23 @@
           /* 處理成功掃描 */  
 		  //document.getElementById("qrtext").innerHTML = decodedText;
 	html5QrCode.stop().then((ignore) => {
-	  alert(decodedText);
+	  
 	  html5QrCode.clear();
-	  liff.closeWindow();
+	  liff
+		  .sendMessages([
+		    {
+		      type: "text",
+		      text: "Hello, World!",
+		    },
+		  ])
+		  .then(() => {
+		    console.log("message sent");
+		    liff.closeWindow();
+
+		  })
+		  .catch((err) => {
+		    console.log("error", err);
+		  });
 	}).catch((err) => {
 	  // Stop failed, handle it.
 	});
