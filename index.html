@@ -23,7 +23,7 @@
           /* 處理成功掃描 */  
 		  //document.getElementById("qrtext").innerHTML = decodedText;
 	html5QrCode.stop().then((ignore) => {
-	  console.log(decodedText);
+	  alert(decodedText);
 	  html5QrCode.clear();
 	  liff.closeWindow();
 	}).catch((err) => {
