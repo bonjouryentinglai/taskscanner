@@ -1,37 +1,144 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>壽山掃條碼測試</title>
-</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task scanner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></head>
 <body>
     <!-- 條碼顯示的內容顯示在 qr-reader-results -->
     <div id="qr-reader-results"><h1 id="qrtext"></h1></div>
 	<!-- 掃描用 -->
-    <div id="qr-reader" style="width:100%"></div>    
+    <div id="qr-reader" style="width:100%"></div> 
+
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+	Launch demo modal
+	</button> 
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-fullscreen">
+		<div class="modal-content">
+		<div class="modal-body">
+			<div>
+				<h1 class="modal-title" id="exampleModalLabel">Winbond steam blower</h4>
+				<h2 class="text-secondary" id="exampleModalLabel2">Customer training</h5>
+				</br>
+				<div class="d-flex justify-content-between">
+					<h4><span class="badge bg-success">T0025</span></h5>
+					<h4>李黛咪</h5>
+				</div>
+			</div>
+			<hr/>
+			<div class="mb-3">
+				<h5>Progress:</h5>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
+				  </div>
+				<div>
+			</div>
+			
+			</div>
+			<div class="d-grid gap-3 col-12 mx-auto">
+				<button class="btn btn-primary" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Material making</button>
+				<button class="btn btn-primary" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">HW/SW preparation</button>
+				<button class="btn btn-primary" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Rehearsal</button>
+
+			  </div>
+		</div>
+
+		</div>
+	</div>
+	</div>
+	<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-fullscreen">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h4 class="modal-title" id="exampleModalToggleLabel2"><span class="badge bg-success">TASK</span>    Material making</h4>
+			</div>
+			<div class="modal-body">
+				<div class="d-grid gap-2 col-10 mx-auto">
+					<button class="btn btn-primary" type="button" data-bs-target="#checkin" data-bs-toggle="modal" data-bs-dismiss="modal">Check in</button>
+					<button class="btn btn-danger" type="button" data-bs-target="#checkout" data-bs-toggle="modal" data-bs-dismiss="modal">Check out</button>
+					<button class="btn btn-dark" type="button" data-bs-target="#keyin" data-bs-toggle="modal" data-bs-dismiss="modal">Key-in</button>
+	
+				  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="modal fade" id="checkin" aria-hidden="true" aria-labelledby="checkinToggleLabel" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+		  <div class="modal-content">
+			
+			<div class="modal-body">
+				<div class="d-flex justify-content-center">
+					<i class="bi bi-check-circle-fill text-success" style="font-size: 8rem;"></i>
+				</div>
+				<div class="d-flex justify-content-center">
+					<h1 class="text-success">Check in success</h1>
+				</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="modal fade" id="checkout" aria-hidden="true" aria-labelledby="checkoutToggleLabel" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+		  <div class="modal-content">
+			
+			<div class="modal-body">
+				<div class="d-flex justify-content-center">
+					<i class="bi bi-check-circle-fill text-success" style="font-size: 8rem;"></i>
+				</div>
+				<div class="d-flex justify-content-center">
+					<h1 class="text-success">Check out success</h1>
+				</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="modal fade" id="keyin" aria-hidden="true" aria-labelledby="keyinToggleLabel" tabindex="-1">
+		<div class="modal-dialog ">
+		  <div class="modal-content">
+			
+			<div class="modal-body">
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label">Please input work hour</label>
+					<input  type="number" class="form-control form-control-lg" id="exampleFormControlInput1">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+			  </div>
+		  </div>
+		</div>
+	  </div>
+
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.0.3/html5-qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
-    <!-- 呼叫 html5qrcode 代入qr-reader -->
+	<!-- 呼叫 html5qrcode 代入qr-reader -->
 	const html5QrCode = new Html5Qrcode("qr-reader");
 	const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-          /* 處理成功掃描 */  
-		  document.getElementById("qrtext").innerHTML = decodedText;
-	      if (decodedText.toUpperCase().startsWith("SMSTO:1922:")) {
-              var t = decodedText.split(":", 3),
-              r= t[1],
-              a= t[2],
-		      o = "sms:" + r + "&body=" + a; // to-do 如果是android 要將&改為?
-			  window.location.href = o;
-		  }
-          html5QrCode.clear();
-     };
-     const config = { fps: 10, qrbox: 800 };
-	// 直接開啟後面鏡頭
-	<!-- 開啟前置鏡頭 -->
-	<!-- html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback); -->
+	        /* 處理成功掃描 */  
+		//document.getElementById("qrtext").innerHTML = decodedText;
+		html5QrCode.stop().then((ignore) => {
+		  html5QrCode.clear();
+		  var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
+		  myModal.show();
+
+		}).catch((err) => {
+		  // Stop failed, handle it.
+		});
+     	};
+     	const config = { fps: 10, qrbox: 600 };
+
 	html5QrCode.start({ 
-	  facingMode: "environment" }, 
-	  config, qrCodeSuccessCallback);
-</script>
+		facingMode: "environment" }, 
+	  	config, qrCodeSuccessCallback);
+
+</script> 
 </head>
 </html>
