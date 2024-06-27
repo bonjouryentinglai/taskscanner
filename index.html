@@ -21,15 +21,24 @@
 	const html5QrCode = new Html5Qrcode("qr-reader");
 	const qrCodeSuccessCallback = (decodedText, decodedResult) => {
           /* 處理成功掃描 */  
-		  document.getElementById("qrtext").innerHTML = decodedText;
-	      if (decodedText.toUpperCase().startsWith("SMSTO:1922:")) {
-              var t = decodedText.split(":", 3),
-              r= t[1],
-              a= t[2],
-		      o = "sms:" + r + "&body=" + a; // to-do 如果是android 要將&改為?
-			  window.location.href = o;
-		  }
-          html5QrCode.clear();
+		  //document.getElementById("qrtext").innerHTML = decodedText;
+	      
+        html5QrCode.clear();
+	liff
+	  .sendMessages([
+	    {
+	      type: "text",
+	      text: decodedText.toUpperCase(),
+	    },
+	  ])
+	  .then(() => {
+	    console.log("message sent");
+	    liff.closeWindow();
+
+	  })
+	  .catch((err) => {
+	    console.log("error", err);
+	  });
      };
      const config = { fps: 10, qrbox: 800 };
 	// 直接開啟後面鏡頭
