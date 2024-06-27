@@ -7,19 +7,25 @@
 </html>
 
 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.0.3/html5-qrcode.min.js"></script>
 <script>
 liff.init({
     liffId: '2005710720-1rG8XJLA', // Use own liffId
 }).then(() => {
     // Start to use liff's api
-	console.log("initialized")
-	liff
-	  .scanCodeV2()
-	  .then((result) => {
-	    console.log(result);
-	  })
-	  .catch((error) => {
-	    alert(error);
-	  });
+    console.log("initialized")
+    const html5QrCode = new Html5Qrcode("qr-reader");
+    const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+	  /* 處理成功掃描 */  
+	  alert(decodedText);
+	  html5QrCode.clear();
+     };
+     const config = { fps: 10, qrbox: 800 };
+	// 直接開啟後面鏡頭
+	<!-- 開啟前置鏡頭 -->
+	<!-- html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback); -->
+     html5QrCode.start({ 
+	  facingMode: "environment" }, 
+	  config, qrCodeSuccessCallback);
 });
 </script>
