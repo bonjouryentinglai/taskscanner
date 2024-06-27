@@ -16,34 +16,46 @@
 	    liffId: '2005710720-1rG8XJLA', // Use own liffId
 	})
 	    .then(() => {
-		// start to use LIFF's api
-		liff
-		  .scanCodeV2()
-		  .then((result) => {
-			liff
-			  .sendMessages([
-			    {
-			      type: "text",
-			      text: "專案名稱：Winbond track\\n人員：李黛咪",
-			    },
-			  ])
-			  .then(() => {
-			    console.log("message sent");
-			    liff.closeWindow();
-	
-			  })
-			  .catch((err) => {
-			    console.log("error", err);
-			  });
+	        // start to use LIFF's api
+		        <!-- 呼叫 html5qrcode 代入qr-reader -->
+	const html5QrCode = new Html5Qrcode("qr-reader");
+	const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+          /* 處理成功掃描 */  
+		  //document.getElementById("qrtext").innerHTML = decodedText;
+	html5QrCode.stop().then((ignore) => {
+	  
+	  html5QrCode.clear();
+	  liff
+		  .sendMessages([
+		    {
+		      type: "text",
+		      text: "專案名稱：Winbond track",
+		    },
+		  ])
+		  .then(() => {
+		    console.log("message sent");
+		    liff.closeWindow();
+
 		  })
-		  .catch((error) => {
-		    console.log("error", error);
+		  .catch((err) => {
+		    console.log("error", err);
 		  });
+	}).catch((err) => {
+	  // Stop failed, handle it.
+	});
+        
+     };
+     const config = { fps: 10, qrbox: 800 };
+	// 直接開啟後面鏡頭
+	<!-- 開啟前置鏡頭 -->
+	<!-- html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback); -->
+	html5QrCode.start({ 
+	  facingMode: "environment" }, 
+	  config, qrCodeSuccessCallback);
 	    })
 	    .catch((err) => {
-		console.log(err);
+	        console.log(err);
 	    });
-	
 
 </script>
 </head>
