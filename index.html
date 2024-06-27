@@ -27,8 +27,14 @@
 	// 直接開啟後面鏡頭
 	<!-- 開啟前置鏡頭 -->
 	<!-- html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback); -->
-     html5QrCode.start({ 
+
+	Html5Qrcode.getCameras().then(devices => {
+	  html5QrCode.start({ 
 	  facingMode: "environment" }, 
 	  config, qrCodeSuccessCallback);
+	}).catch(err => {
+	  // handle err
+	});
+     
 //});
 </script>
