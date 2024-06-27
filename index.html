@@ -9,7 +9,7 @@
     </body>
 </html>
 
-<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>
+<!--<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.0.3/html5-qrcode.min.js"></script>
 <script>
 //liff.init({
@@ -20,8 +20,9 @@
     const html5QrCode = new Html5Qrcode("qr-reader");
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
 	  /* 處理成功掃描 */  
-	  alert(decodedText);
-	  html5QrCode.clear();
+	  //alert(decodedText);
+	    console.log(decodedText);
+	  //html5QrCode.clear();
      };
      const config = { fps: 10, qrbox: 800 };
 	// 直接開啟後面鏡頭
