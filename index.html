@@ -9,7 +9,7 @@
 
 <body>
 	<div class="d-flex justify-content-center min-vh-100 min-vw-100">
-		<div class="card align-self-center shadow" style="width: 90%;">
+		<div class="card align-self-center shadow" style="width:100%;">
 			<h3 class="card-header bg-primary text-white" id="project_name"></h3>
 			<div class="card-body">
 				<h5 class="card-title" id="milestone"></h5>
@@ -17,12 +17,13 @@
 					<h5><span class="badge bg-warning" id="owner"></span></h5>
 				</div>
 				<hr>
-				<div class="d-grid gap-2 col-12 mx-auto">
-					<button class="btn btn-success" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Material making</button>
-					<button class="btn btn-success" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">HW/SW preparation</button>
-					<button class="btn btn-success" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Rehearsal</button>
-	
+				<div class="d-flex justify-content-center" id="spinner">
+					<div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+					  <span class="visually-hidden">Loading...</span>
+					</div>
 				  </div>
+				<div class="d-grid gap-2 col-12 mx-auto" id="milestone_buttons">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -38,9 +39,7 @@
 			<div class="modal-body">
 				<div class="d-grid gap-2 col-10 mx-auto">
 					<button class="btn btn-primary" type="button" data-bs-target="#checkin" data-bs-toggle="modal" data-bs-dismiss="modal">Check in</button>
-					<button class="btn btn-danger" type="button" data-bs-target="#checkout" data-bs-toggle="modal" data-bs-dismiss="modal">Check out</button>
 					<button class="btn btn-dark" type="button" data-bs-target="#keyin" data-bs-toggle="modal" data-bs-dismiss="modal">Key-in</button>
-	
 				  </div>
 			</div>
 		  </div>
@@ -121,6 +120,18 @@
 		$('#project_name').html(info["project_name"]);
 		$('#milestone').html(info["milestone"]);
 		$('#owner').html('<span class="badge text-bg-primary">'+info["owner"]+'</span>');
+		fetch("https://script.google.com/macros/s/AKfycbxKhh0F8r-UkV-lb32Q-dImEBMbJzNHg6_Arxbxyx7i74tRKW8-CexdRBDJhgNxNOOMGg/exec")
+			.then((response) => response.json())
+			.then((json) => {
+				$('#spinner').html('');
+				json.forEach(element => {
+					console.log(element[1]+","+element[3])
+					$('#milestone_buttons').append(
+						'<button class="btn btn-success" type="button" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">'+element[1]+','+element[3]+'</button>'
+					)
+
+				});
+			});
 	});
 
 </script>
